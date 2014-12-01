@@ -9,6 +9,8 @@ needExpansion.
 
 /* Plans */
 
-+!firmExpanded <- ?advert.
++!firmExpanded <- ?needHireEmployee.
 
-+?advert <- .print("Averv propagated.");.
++?needHireEmployee <- .print("I need hire a employee."); ?propagateAdvert.
+
++?propagateAdvert <- .print("Advert about vacation propagated.");.
