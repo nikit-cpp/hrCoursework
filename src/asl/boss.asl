@@ -5,7 +5,7 @@ needExpansion.
 
 /* Initial goals */
 
-!firmExpanded.
+/*!firmExpanded. */
 
 /* Plans */
 
@@ -13,4 +13,4 @@ needExpansion.
 
 +?needHireEmployee <- .print("I need hire a employee."); ?propagateAdvert.
 
-+?propagateAdvert <- .print("Advert about vacation propagated."); .send(unemployed,achieve,hired).
++?propagateAdvert <- .print("Advert about vacation propagated."); .broadcast(achieve, hired).

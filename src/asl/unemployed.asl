@@ -8,7 +8,7 @@
 
 /* Plans */
 
-+!start : true <- .print("hello, boring world.").
++!start : true <- .print("I'm looking for a job").
 
 +!hired[source(boss)] <- 
 	.print("Yahoo! I am hired!").

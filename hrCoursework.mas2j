@@ -4,7 +4,7 @@ MAS jasonHelloWorls {
 
 	agents:
 		boss;
-		unemployed;
+		generator;
 	aslSourcePath:
 		"src/asl";
 }
