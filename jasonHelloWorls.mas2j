@@ -3,10 +3,8 @@ MAS jasonHelloWorls {
 	infrastructure: Centralised
 
 	agents:
-		properlyFactorial properlyFactorial.asl;
-		factorial factorial.asl;
-		helloWOrld;
-		rab;
+		boss;
+		unemployed;
 	aslSourcePath:
 		"src/asl";
 }

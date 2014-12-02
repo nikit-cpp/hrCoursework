@@ -13,4 +13,4 @@ needExpansion.
 
 +?needHireEmployee <- .print("I need hire a employee."); ?propagateAdvert.
 
-+?propagateAdvert <- .print("Advert about vacation propagated.");.
++?propagateAdvert <- .print("Advert about vacation propagated."); .send(unemployed,achieve,hired).
