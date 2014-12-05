@@ -10,6 +10,7 @@
 +!startAllowed : true <-	?learningLevel(LL); ?practiceLevel(PL);
 					.print("My skills: learning ",LL,", practice ",PL, ". I'm looking for a job");
 					.
+/*Выяснение теоретических знаний и практических навыков */
 
 @g2[atomic]
 +!hired[source(boss)] <- 
@@ -17,4 +18,7 @@
 	
 @g3[atomic]
 +!vacationReceived[source(boss)] <- 
-	.print("received vacation from newspaper").
+	.print("received vacation from newspaper");
+	?respondVacation.
+
++?respondVacation <- .print("I respond vacation");.
