@@ -7,8 +7,11 @@
 !start.
 
 /* Plans */
+@g1[atomic]
++!start : true <-	?learningLevel(LL); ?practiceLevel(PL);
+					.print("My skills: learning ",LL,", practice ",PL);
+					.print("I'm looking for a job");.
 
-+!start : true <- .print("I'm looking for a job").
-
+@g2[atomic]
 +!hired[source(boss)] <- 
 	.print("Yahoo! I am hired!").

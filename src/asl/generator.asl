@@ -17,10 +17,12 @@ AC<MAC <-
 	?maxDelay(MD);
 	?agentCounter(C);
 	.wait(math.round(math.random(MD)));
-	.concat("unemployed",C,Name);  
+	.concat("unemployed",C, Name);  
 	.create_agent(Name, "unemployed.asl"); 
-	V=math.round(math.random(3))+1;   
-	.send(Name, tell, orderValue(V));
+	LL=math.round(math.random(3))+1;
+	PL=math.round(math.random(3))+1;
+	.send(Name, tell, learningLevel(LL));
+	.send(Name, tell, practiceLevel(PL));
 	!!start.
 /*
 Если еще не создано заданное количество клиентов, то данный план рекурсивно
