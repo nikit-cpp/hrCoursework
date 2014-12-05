@@ -1,5 +1,5 @@
 //1. База убеждений
-maxDelay(500). // максимальная величина паузы между 
+maxDelay(0). // максимальная величина паузы между 
                   //порождением  2х клиентов.
 maxAgentCounter(10). // максимальное количество 
                              //порождаемых клиентов.
@@ -7,10 +7,10 @@ agentCounter(0). // счетчик созданных клиентов.
 completeCounter(0). // счетчик клиентов, завершивших свою 
                                   //работу.
 sellers([seller1, seller2, seller3]). //список продавцов
-!start. // начальная цель, инициализирующая работу генератора.
+!start. // начальная цель, инициализирующая работу генератора, и вообще, всего
 
 // 2. Планы по достижению целей
-@g1
+@g1[atomic]
 +!start: agentCounter(AC) & maxAgentCounter(MAC) &      
 AC<MAC <-
 	-+agentCounter(AC+1);
@@ -46,10 +46,14 @@ AC<MAC <-
 него новый стек (т.к. используется оператор «!!»).
  */
 	
-@g2 +!start <-.send(boss,achieve,firmExpanded).
+@g2[atomic]
+	+!start <-	.send(boss,achieve,firmExpanded);
+				.broadcast(achieve, startAllowed).
 /*
 План «заглушка», который срабатывает, когда перестают выполняться контекстные
 ограничения предыдущего плана.
+Стартуем необходимую логику, а именно -- бос должен достигнуть firmExpanded
+а безработные -- startAllowed
  */
 
 
@@ -59,4 +63,5 @@ AC<MAC <-
 	-+completeCounter(C+1);
 	.kill_agent(Agent).
 
-+!hired[source(boss)] <- true.
+@g4[atomic]
++!vacationReceived[source(boss)] <- true.
