@@ -21,4 +21,8 @@
 	.print("received vacation from newspaper");
 	?respondVacation.
 
-+?respondVacation <- .print("I respond vacation");.
+@g4[atomic]
++?respondVacation <- .print("I respond vacation"); ?contactWithBoss.
+
+@g5[atomic]
++?contactWithBoss <- .print("I contacting to with my future boss");.
