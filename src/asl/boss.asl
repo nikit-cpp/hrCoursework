@@ -22,7 +22,7 @@ needExpansion.
 /*заглушка-на-broadcast */
 
 @g5[atomic]
-+!scheduleAnInterview(N) <- /* ?getInterviewTime(H, M, S)*/ .time(H,M,S); .print("Appoint an interview at ", H,":",M,":",S," for ", N);.
++!scheduleAnInterview(N) <- ?getInterviewTime(H, M, S); .time(H,M,S); .print("Appoint an interview at ", H,":",M,":",S," for ", N);.
 
-/* @g6[atomic]
-+!getInterviewTime(H, M, S) <- .time(H,M,S).*/
+@g6[atomic]
++?getInterviewTime(H, M, S) <- .time(H1,M1,S1); H=H1; M=M1; S=S1;.
