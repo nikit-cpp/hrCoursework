@@ -3,8 +3,7 @@
 /* Initial beliefs and rules */
 needExpansion.
 interview_duration_hours(1).
-free_time_hours(FH).
-c(H2, M2, S2):- interview_duration_hours(D) & .time(H1,M1,S1) & H2=H1+D & M2=M1 & S2=S1.
+free_time_hours(0). // счётчик часов
 
 /* Initial goals */
 
@@ -25,5 +24,10 @@ c(H2, M2, S2):- interview_duration_hours(D) & .time(H1,M1,S1) & H2=H1+D & M2=M1 
 /*заглушка-на-broadcast */
 
 @g5[atomic]
-+!scheduleAnInterview(N) <- ?c(H, M, S); /*.time(H,M,S);*/ .print("Appoint an interview at ", H,":",M,":",S," for ", N);.
-
++!scheduleAnInterview(N): free_time_hours(FTH) & interview_duration_hours(ID) <-
+	-+free_time_hours(FTH+ID);
+	?free_time_hours(NFTH);
+	.time(H0,M,S);
+	H=H0+NFTH;
+	.print("Appoint an interview at ", H,":",M,":",S," for ", N);
+	.
