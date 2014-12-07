@@ -20,3 +20,9 @@ needExpansion.
 @g4[atomic]
 +!startAllowed[source(generator)] <- true.
 /*заглушка-на-broadcast */
+
+@g5[atomic]
++!scheduleAnInterview(N) <- /* ?getInterviewTime(H, M, S)*/ .time(H,M,S); .print("Appoint an interview at ", H,":",M,":",S," for ", N);.
+
+/* @g6[atomic]
++!getInterviewTime(H, M, S) <- .time(H,M,S).*/

@@ -25,4 +25,4 @@
 +?respondVacation <- .print("I respond vacation"); ?contactWithBoss.
 
 @g5[atomic]
-+?contactWithBoss <- .print("I contacting to with my future boss");.
++?contactWithBoss <- .print("I contacting to with my future boss"); .my_name(N); .send(boss,achieve, scheduleAnInterview(N));.
