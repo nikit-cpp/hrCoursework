@@ -18,8 +18,8 @@ AC<MAC <-
 	.wait(math.round(math.random(MD)));
 	.concat("unemployed",C, Name);  
 	.create_agent(Name, "unemployed.asl"); 
-	LL=math.round(math.random(3))+1; // уровень теории [1..4]
-	PL=math.round(math.random(3))+1; // уровень практики [1..4]
+	LL=math.round(math.random(1)); // уровень теории [0..1]
+	PL=math.round(math.random(1)); // уровень практики [0..1]
 	
 	LD=math.round(math.random(1)); // желание читать [0..1]
 	PD=math.round(math.random(1)); // желание программировать [0..1]

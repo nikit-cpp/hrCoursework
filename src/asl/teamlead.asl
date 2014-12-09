@@ -1,7 +1,7 @@
 // Agent unemployed in project jasonHelloWorls
 
 /* Initial beliefs and rules */
-expectedSkills(2, 2).
+expectedSkills(1, 1).
 maxHired(2).
 hired(0).
 // Ожидаемые уровень теории и уровень практики
