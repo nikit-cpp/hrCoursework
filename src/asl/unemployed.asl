@@ -74,7 +74,17 @@
 	.print("I'll go look for another job.").
 	
 @g8[atomic]
-+?readBooks <- .print("I read books");.
++?readBooks : skills(LL, PL) & desires(LD, PD) <-
+	.print("I read books");
+	-+skills(1, PL); // перезаписываем уровень теории = 1
+	?skills(LL2, PL2);
+	.print("My new skills: learning ",LL2,", practice ",PL2, ". desires: reading ",LD,", programming ",PD, ". I'm looking for a job");
+	.
 
 @g9[atomic]
-+?writePrograms <- .print("I write programs");.
++?writePrograms : skills(LL, PL) & desires(LD, PD) <-
+	.print("I write programs");
+	-+skills(LL, 1); // перезаписываем уровень практики = 1
+	?skills(LL2, PL2);
+	.print("My new skills: learning ",LL2,", practice ",PL2, ". desires: reading ",LD,", programming ",PD, ". I'm looking for a job");
+	.
