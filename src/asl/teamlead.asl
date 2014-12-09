@@ -39,6 +39,10 @@ expectedSkills(2, 2).
 	?checkSkills(LL,PL, N);
 	.
 
+/* Сравнивает навыка агента unemployedn с требуемыми.
+ * В случае когда навыки unemployedn не менее ожидаемых
+ * нанимаем агента.
+ */
 @g8[atomic]
 +?checkSkills(ACTUALLL, ACTUALPL, N) : expectedSkills(EXLL, EXPL) &      
 	ACTUALLL>=EXLL & ACTUALPL>= EXPL <-
@@ -46,8 +50,11 @@ expectedSkills(2, 2).
 		.send(N, achieve, hired);
 	.
 	
+/* Случай, когда навыков unemployedn недостаточно
+ * отказываем ему.
+ */
 @g9[atomic]
 +?checkSkills(ACTUALLL, ACTUALPL, N) <- 
-	.print(N,", sorry, we phone you");
+	.print(N,", sorry, we phone you.");
 	.send(N, achieve, rejected);
 .
