@@ -11,6 +11,7 @@
 	.print("Now i'll prepare tasks and questions for ", N);
 	?makeQuestions;
 	?findTasks;
+	?ready(N);
 	.
 	
 @g2[atomic]
@@ -26,3 +27,9 @@
 @g5[atomic]
 +!vacationReceived[source(boss)] <- true.
 /*заглушка-на-broadcast */
+
+@g6[atomic]
++?ready(N) <- !meetUnemployed(N).
+
+@g7[atomic]
++!meetUnemployed(N) <- .print("Hello, ",N, ", please tell me your scills");.
