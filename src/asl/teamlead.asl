@@ -15,10 +15,6 @@ expectedSkills(2, 2).
 	?findTasks;
 	?ready(N);
 	.
-	
-@g2[atomic]
-+!startAllowed[source(generator)] <- true.
-/*заглушка-на-broadcast */
 
 @g3[atomic]
 +?makeQuestions <- true.
@@ -51,4 +47,7 @@ expectedSkills(2, 2).
 	.
 	
 @g9[atomic]
-+?checkSkills(ACTUALLL, ACTUALPL, N) <- .print(N,", sorry, we phone you");.
++?checkSkills(ACTUALLL, ACTUALPL, N) <- 
+	.print(N,", sorry, we phone you");
+	.send(N, achieve, rejected);
+.

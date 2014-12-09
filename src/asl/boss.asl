@@ -19,10 +19,6 @@ free_time_hours(0). // счётчик часов
 @g3[atomic]
 +?propagateAdvert <- .print("Advert about vacation propagated."); .broadcast(achieve, vacationReceived).
 
-@g4[atomic]
-+!startAllowed[source(generator)] <- true.
-/*заглушка-на-broadcast */
-
 @g5[atomic]
 +!scheduleAnInterview(N): free_time_hours(FTH) & interview_duration_hours(ID) <-
 	-+free_time_hours(FTH+ID);

@@ -13,7 +13,7 @@
 					.
 
 @g2[atomic]
-+!hired/*[source(boss)]*/ <- 
++!hired[source(teamlead)] <- 
 	.print("Yahoo! I am hired!").
 	
 @g3[atomic]
@@ -32,3 +32,7 @@
 	.print("I am going to interview on appoint time ", H,":",M,":",S,".");
 	+interviewTime(H, M, S); // Добавляем убеждение, в котором запоминаем время 
 	.
+
+@g7[atomic]
++!rejected[source(teamlead)] <- 
+	.print("I'll go look for another job.").
