@@ -21,8 +21,7 @@ AC<MAC <-
 	.create_agent(Name, "unemployed.asl"); 
 	LL=math.round(math.random(3))+1;
 	PL=math.round(math.random(3))+1;
-	.send(Name, tell, learningLevel(LL));
-	.send(Name, tell, practiceLevel(PL));
+	.send(Name, tell, skills(LL, PL));
 	!!start.
 /*
 Если еще не создано заданное количество клиентов, то данный план рекурсивно
@@ -50,8 +49,6 @@ AC<MAC <-
 	+!start <-	.send(boss,achieve,firmExpanded);
 				.broadcast(achieve, startAllowed).
 /*
-План «заглушка», который срабатывает, когда перестают выполняться контекстные
-ограничения предыдущего плана.
 Стартуем необходимую логику, а именно -- бос должен достигнуть firmExpanded
 а безработные -- startAllowed
  */

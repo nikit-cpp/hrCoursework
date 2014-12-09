@@ -37,8 +37,7 @@ expectedSkills(2, 2).
 +!meetUnemployed(N) <-
 	.send(N, askOne, interviewTime(H,M,S), interviewTime(H,M,S));
 	.print(H,":",M,":",S," ", "Hello, ",N, ", please tell me your scills");
-	.send(N, askOne, learningLevel(LL), learningLevel(LL));
-	.send(N, askOne, practiceLevel(PL), practiceLevel(PL));
+	.send(N, askOne, skills(LL, PL), skills(LL, PL));
 	.print(N,", your skills: learning ",LL,", practice ",PL, ".");
 	
 	?checkSkills(LL,PL, N);
@@ -52,4 +51,4 @@ expectedSkills(2, 2).
 	.
 	
 @g9[atomic]
-+?checkSkills(ACTUALLL, ACTUALPL, N) <- .print("Sorry, we phone you");.
++?checkSkills(ACTUALLL, ACTUALPL, N) <- .print(N,", sorry, we phone you");.

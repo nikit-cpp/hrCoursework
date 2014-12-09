@@ -7,10 +7,10 @@
 
 /* Plans */
 @g1[atomic]
-+!startAllowed : true <-	?learningLevel(LL); ?practiceLevel(PL);
++!startAllowed : true <-
+					?skills(LL, PL); /*Выяснение теоретических знаний и практических навыков */
 					.print("My skills: learning ",LL,", practice ",PL, ". I'm looking for a job");
 					.
-/*Выяснение теоретических знаний и практических навыков */
 
 @g2[atomic]
 +!hired/*[source(boss)]*/ <- 
@@ -30,9 +30,5 @@
 @g6[atomic]
 +!go(H,M,S)[source(boss)] <- 
 	.print("I am going to interview on appoint time ", H,":",M,":",S,".");
-	+interviewTime(H, M, S);
-	// Добавляем убеждение, в котором запоминаем время 
+	+interviewTime(H, M, S); // Добавляем убеждение, в котором запоминаем время 
 	.
-
-/*@g7[atomic]
-+!tellSkills(LL,PL) <- true.*/
