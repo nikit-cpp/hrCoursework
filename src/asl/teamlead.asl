@@ -33,7 +33,9 @@
 
 @g7[atomic]
 +!meetUnemployed(N) <-
-	.print("Hello, ",N, ", please tell me your scills");
+	.send(N, askOne, interviewTime(H,M,S), interviewTime(H,M,S));
+	.print(H,":",M,":",S,".", "Hello, ",N, ", please tell me your scills");
+	
 	/*.send(n, tellSkills(LL,PL));*/
 	.send(N, askOne, learningLevel(LL), learningLevel(LL));
 	.send(N, askOne, practiceLevel(PL), practiceLevel(PL));

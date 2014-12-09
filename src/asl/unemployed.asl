@@ -30,6 +30,8 @@
 @g6[atomic]
 +!go(H,M,S)[source(boss)] <- 
 	.print("I am going to interview on appoint time ", H,":",M,":",S,".");
+	+interviewTime(H, M, S);
+	// Добавляем убеждение, в котором запоминаем время 
 	.
 
 /*@g7[atomic]
