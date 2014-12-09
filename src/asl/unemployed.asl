@@ -31,3 +31,6 @@
 +!go(H,M,S)[source(boss)] <- 
 	.print("I am going to interview on appoint time ", H,":",M,":",S,".");
 	.
+
+/*@g7[atomic]
++!tellSkills(LL,PL) <- true.*/
