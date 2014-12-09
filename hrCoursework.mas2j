@@ -5,6 +5,7 @@ MAS hrCoursework {
 	agents:
 		boss;
 		generator;
+		teamlead;
 	aslSourcePath:
 		"src/asl";
 }

@@ -38,5 +38,6 @@ free_time_hours(0). // счётчик часов
         	.print(X);
      	}
      }*/
-     .send(N,achieve,go(H,M,S));
+    .send(N,achieve,go(H,M,S));
+    .send(teamlead, achieve, prepareTasks(N));
 	.
