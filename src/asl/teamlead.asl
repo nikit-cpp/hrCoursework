@@ -22,10 +22,6 @@ expectedSkills(2, 2).
 @g4[atomic]
 +?findTasks <- true.
 
-@g5[atomic]
-+!vacationReceived[source(boss)] <- true.
-/*заглушка-на-broadcast */
-
 @g6[atomic]
 +?ready(N) <- !meetUnemployed(N).
 

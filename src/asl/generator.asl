@@ -47,7 +47,6 @@ AC<MAC <-
 	
 @g2[atomic]
 	+!start <-	.send(boss,achieve,firmExpanded);
-				/*.broadcast(achieve, startAllowed)*/
 				.all_names(L);
 				for ( .member(X,L) ) {
 			        // .print(X);    // print all members of the list
@@ -58,7 +57,7 @@ AC<MAC <-
 				
 				.
 /*
-Стартуем необходимую логику, а именно -- бос должен достигнуть firmExpanded
+Стартуем необходимую логику, а именно -- босс должен достигнуть firmExpanded
 а безработные -- startAllowed
  */
 
@@ -68,6 +67,3 @@ AC<MAC <-
 	?completeCounter(C);
 	-+completeCounter(C+1);
 	.kill_agent(Agent).
-
-@g4[atomic]
-+!vacationReceived[source(boss)] <- true.
