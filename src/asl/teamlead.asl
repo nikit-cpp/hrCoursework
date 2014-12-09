@@ -2,6 +2,8 @@
 
 /* Initial beliefs and rules */
 expectedSkills(2, 2).
+maxHired(2).
+hired(0).
 // Ожидаемые уровень теории и уровень практики
 
 /* Initial goals */
@@ -40,13 +42,17 @@ expectedSkills(2, 2).
  * нанимаем агента.
  */
 @g8[atomic]
-+?checkSkills(ACTUALLL, ACTUALPL, N) : expectedSkills(EXLL, EXPL) &      
-	ACTUALLL>=EXLL & ACTUALPL>= EXPL <-
++?checkSkills(ACTUALLL, ACTUALPL, N) :
+	expectedSkills(EXLL, EXPL) & hired(AH) & maxHired(MAXH) &      
+	ACTUALLL>=EXLL & ACTUALPL>=EXPL & AH<=MAXH <-
+		?hired(C);
+		-+hired(C+1);
 		.print("You hired!");
 		.send(N, achieve, hired);
 	.
 	
 /* Случай, когда навыков unemployedn недостаточно
+ * или мы уже наняли достаточно работников
  * отказываем ему.
  */
 @g9[atomic]
