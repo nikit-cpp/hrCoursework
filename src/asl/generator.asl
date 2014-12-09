@@ -51,14 +51,6 @@ AC<MAC <-
 	
 @g2[atomic]
 	+!start <-	.send(boss,achieve,firmExpanded);
-				.all_names(L);
-				/*for ( .member(X,L) ) {
-			        // .print(X);    // print all members of the list
-			        if (.substring("unemployed", X)) { 
-			        	.send(X,achieve,startAllowed);
-			     	}
-			     }*/
-				
 				.
 /*
 Стартуем необходимую логику, а именно -- босс должен достигнуть firmExpanded

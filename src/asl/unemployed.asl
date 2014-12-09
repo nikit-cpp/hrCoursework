@@ -7,7 +7,7 @@
 
 /* Plans */
 @g1[atomic]
-+!startAllowed : true <-
++!checkSkills : true <-
 					?skills(LL, PL); /*Выяснение теоретических знаний и практических навыков */
 					?desires(LD, PD); /*Выяснение желаний читать и программировать */
 					.print("My skills: learning ",LL,", practice ",PL, ". desires: reading ",LD,", programming ",PD, ". I'm looking for a job");
@@ -16,49 +16,12 @@
 @g2[atomic]
 +!hired[source(teamlead)] <- 
 	.print("Yahoo! I am hired!").
-	
-/*@g3[atomic]
-+!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) <- 
-	.print("received vacation from newspaper");
-	//.print("LL=",LL,", Pl=",PL,",  LD=",LD,", PD=",PD);
-	if(LL==1 & PL==1){ // scenario 1
-		!respondVacation;
-	}
-	if(LL==0 & PL==1 & LD==0){ // scenario 2
-		!respondVacation;
-	}
-	if(LL==0 & PL==1 & LD==1){ // scenario 3
-		!readBooks;
-		!respondVacation;
-	}
-	if(LL==1 & PL==0 & PD==0){ // scenario 4
-		!respondVacation;
-	}
-	if(LL==1 & PL==0 & PD==1){ // scenario 5
-		!writePrograms;
-		!respondVacation;
-	}
-	if(LL==0 & LD==0 & PL==0 & PD==0){ // scenario 6
-		!respondVacation;
-	}
-	if(LL==0 & LD==1 & PL==0 & PD==0){ // scenario 7
-		!readBooks;
-		!respondVacation;
-	}
-	if(LL==0 & LD==0 & PL==0 & PD==1){ // scenario 8
-		!writePrograms;
-		!respondVacation;
-	}
-	if(LL==0 & LD==1 & PL==0 & PD==1){ // scenario 9
-		!readBooks;
-		!writePrograms;
-		!respondVacation;
-	}
-	.*/
+
 	
 @g11[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==1 & PL==1 <- // scenario 1
+	!checkSkills;
 	.print("received vacation from newspaper1");
 	!respondVacation;
 	.
@@ -66,6 +29,7 @@ LL==1 & PL==1 <- // scenario 1
 @g12[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==0 & PL==1 & LD==0 <- // scenario 2
+	!checkSkills;
 	.print("received vacation from newspaper2");
 	!respondVacation;
 	.
@@ -73,6 +37,7 @@ LL==0 & PL==1 & LD==0 <- // scenario 2
 @g13[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==0 & PL==1 & LD==1 <- // scenario 3
+	!checkSkills;
 	.print("received vacation from newspaper3");
 	!readBooks;
 	!respondVacation;
@@ -81,6 +46,7 @@ LL==0 & PL==1 & LD==1 <- // scenario 3
 @g14[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==1 & PL==0 & PD==0 <- // scenario 4
+	!checkSkills;
 	.print("received vacation from newspaper4");
 	!respondVacation;
 	.
@@ -88,6 +54,7 @@ LL==1 & PL==0 & PD==0 <- // scenario 4
 @g15[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==1 & PL==0 & PD==1 <- // scenario 5
+	!checkSkills;
 	.print("received vacation from newspaper5");
 	!writePrograms;
 	!respondVacation;
@@ -96,6 +63,7 @@ LL==1 & PL==0 & PD==1 <- // scenario 5
 @g16[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==0 & LD==0 & PL==0 & PD==0 <- // scenario 6
+	!checkSkills;
 	.print("received vacation from newspaper6");
 	!respondVacation;
 	.
@@ -103,6 +71,7 @@ LL==0 & LD==0 & PL==0 & PD==0 <- // scenario 6
 @g17[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==0 & LD==1 & PL==0 & PD==0 <- // scenario 7
+	!checkSkills;
 	.print("received vacation from newspaper7");
 	!readBooks;
 	!respondVacation;
@@ -111,6 +80,7 @@ LL==0 & LD==1 & PL==0 & PD==0 <- // scenario 7
 @g18[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==0 & LD==0 & PL==0 & PD==1 <- // scenario 8
+	!checkSkills;
 	.print("received vacation from newspaper8");
 	!writePrograms;
 	!respondVacation;
@@ -119,6 +89,7 @@ LL==0 & LD==0 & PL==0 & PD==1 <- // scenario 8
 @g19[atomic]
 +!vacationReceived[source(boss)] : skills(LL, PL) & desires(LD, PD) &
 LL==0 & LD==1 & PL==0 & PD==1 <- // scenario 9
+	!checkSkills;
 	.print("received vacation from newspaper9");
 	!readBooks;
 	!writePrograms;
