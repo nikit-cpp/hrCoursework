@@ -13,7 +13,7 @@
 /*Выяснение теоретических знаний и практических навыков */
 
 @g2[atomic]
-+!hired[source(boss)] <- 
++!hired/*[source(boss)]*/ <- 
 	.print("Yahoo! I am hired!").
 	
 @g3[atomic]

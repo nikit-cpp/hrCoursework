@@ -1,6 +1,8 @@
 // Agent unemployed in project jasonHelloWorls
 
 /* Initial beliefs and rules */
+expectedSkills(2, 2).
+// Ожидаемые уровень теории и уровень практики
 
 /* Initial goals */
 
@@ -34,10 +36,20 @@
 @g7[atomic]
 +!meetUnemployed(N) <-
 	.send(N, askOne, interviewTime(H,M,S), interviewTime(H,M,S));
-	.print(H,":",M,":",S,".", "Hello, ",N, ", please tell me your scills");
-	
-	/*.send(n, tellSkills(LL,PL));*/
+	.print(H,":",M,":",S," ", "Hello, ",N, ", please tell me your scills");
 	.send(N, askOne, learningLevel(LL), learningLevel(LL));
 	.send(N, askOne, practiceLevel(PL), practiceLevel(PL));
 	.print(N,", your skills: learning ",LL,", practice ",PL, ".");
+	
+	?checkSkills(LL,PL, N);
 	.
+
+@g8[atomic]
++?checkSkills(ACTUALLL, ACTUALPL, N) : expectedSkills(EXLL, EXPL) &      
+	ACTUALLL>=EXLL & ACTUALPL>= EXPL <-
+		.print("You hired!");
+		.send(N, achieve, hired);
+	.
+	
+@g9[atomic]
++?checkSkills(ACTUALLL, ACTUALPL, N) <- .print("Sorry, we phone you");.
