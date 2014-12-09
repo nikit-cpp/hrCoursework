@@ -30,12 +30,13 @@ free_time_hours(0). // счётчик часов
 	.time(H0,M,S);
 	H=H0+NFTH;
 	.print("Appoint an interview at ", H,":",M,":",S," for ", N);
-	/*.broadcast(achieve, startAllowed);*/
+	/*.broadcast(achieve, startAllowed);
 	.all_names(L);
 	for ( .member(X,L) ) {
         // .print(X);    // print all members of the list
         if (.substring("unemployed", X)) { 
         	.print(X);
      	}
-     }
+     }*/
+     .send(N,achieve,go(H,M,S));
 	.

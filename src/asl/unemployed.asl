@@ -26,3 +26,8 @@
 
 @g5[atomic]
 +?contactWithBoss <- .print("I contacting to with my future boss"); .my_name(N); .send(boss,achieve, scheduleAnInterview(N));.
+
+@g6[atomic]
++!go(H,M,S)[source(boss)] <- 
+	.print("I am going to interview on appoint time ", H,":",M,":",S,".");
+	.
