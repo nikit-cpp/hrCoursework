@@ -10,6 +10,8 @@
 +!startAllowed : true <-
 					?skills(LL, PL); /*Выяснение теоретических знаний и практических навыков */
 					.print("My skills: learning ",LL,", practice ",PL, ". I'm looking for a job");
+					?desires(LD, PD); /*Выяснение желаний читать и программировать */
+					.print("My desires: reading ",LD,", programming ",PD, ". I'm looking for a job");
 					.
 
 @g2[atomic]

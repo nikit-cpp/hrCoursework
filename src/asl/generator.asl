@@ -18,9 +18,14 @@ AC<MAC <-
 	.wait(math.round(math.random(MD)));
 	.concat("unemployed",C, Name);  
 	.create_agent(Name, "unemployed.asl"); 
-	LL=math.round(math.random(3))+1;
-	PL=math.round(math.random(3))+1;
+	LL=math.round(math.random(3))+1; // уровень теории [1..4]
+	PL=math.round(math.random(3))+1; // уровень практики [1..4]
+	
+	LD=math.round(math.random(1)); // желание читать [0..1]
+	PD=math.round(math.random(1)); // желание программировать [0..1]
+	
 	.send(Name, tell, skills(LL, PL));
+	.send(Name, tell, desires(LD, PD));
 	!!start.
 /*
 Если еще не создано заданное количество клиентов, то данный план рекурсивно
