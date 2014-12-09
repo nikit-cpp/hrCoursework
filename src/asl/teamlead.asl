@@ -44,9 +44,9 @@ hired(0).
 @g8[atomic]
 +?checkSkills(ACTUALLL, ACTUALPL, N) :
 	expectedSkills(EXLL, EXPL) & hired(AH) & maxHired(MAXH) &      
-	ACTUALLL>=EXLL & ACTUALPL>=EXPL & AH<=MAXH <-
-		?hired(C);
-		-+hired(C+1);
+	ACTUALLL>=EXLL & ACTUALPL>=EXPL & AH<MAXH <-
+		?hired(C); // получаем число уже нанятых сотрудников в переменную C из начального убеждения hired
+		-+hired(C+1); // обновляем число уже нанятых сотрудников в начальном убеждении hired
 		.print("You hired!");
 		.send(N, achieve, hired);
 	.
